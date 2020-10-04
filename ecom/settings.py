@@ -1,6 +1,7 @@
 import os
 import environ
-
+import stat
+FILE_UPLOAD_PERMISSIONS = stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP
 env = environ.Env()
 
 # read the .env file
@@ -20,7 +21,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -134,11 +134,11 @@ if DEBUG is False:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': '',
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
-            'PORT': ''
+            'NAME': 'ecomdb',
+            'USER': 'ecom_admin',
+            'PASSWORD': 'testing123',
+            'HOST': 'localhost',
+            'PORT': '',
         }
     }
 

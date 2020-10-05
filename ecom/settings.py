@@ -9,10 +9,10 @@ environ.Env.read_env()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'mysecretkey'
-# DEBUG = env('DEBUG')
+
 DEBUG = False
 print(DEBUG)
-ALLOWED_HOSTS = ['3.231.203.166', 'localhost']
+ALLOWED_HOSTS = ['', 'localhost']
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -38,7 +38,7 @@ DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
 NOTIFY_EMAIL = env('NOTIFY_EMAIL')
 
 MIDDLEWARE = [
-    # 'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -129,7 +129,7 @@ else:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_SECONDS = 31536000
     SECURE_REDIRECT_EXEMPT = []
-    SECURE_SSL_REDIRECT = False
+    # SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

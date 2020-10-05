@@ -141,6 +141,7 @@ if DEBUG is False:
             'PORT': '',
         }
     }
+    print('i am in here', SECRET_KEY)
 
     PAYPAL_CLIENT_ID = env('PAYPAL_LIVE_CLIENT_ID')
     PAYPAL_SECRET_KEY = env('PAYPAL_LIVE_SECRET_KEY')

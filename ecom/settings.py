@@ -12,7 +12,7 @@ SECRET_KEY = 'mysecretkey'
 
 DEBUG = False
 print(DEBUG)
-ALLOWED_HOSTS = ['', 'localhost']
+ALLOWED_HOSTS = ['3.234.207.94', 'localhost']
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

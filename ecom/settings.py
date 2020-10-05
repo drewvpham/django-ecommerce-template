@@ -38,7 +38,7 @@ DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
 NOTIFY_EMAIL = env('NOTIFY_EMAIL')
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    # 'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,14 +123,14 @@ if DEBUG:
         }
     }
 else:
-    # SESSION_COOKIE_SECURE = True
-    # SECURE_BROWSER_XSS_FILTER = True
-    # SECURE_CONTENT_TYPE_NOSNIFF = True
-    # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    # SECURE_HSTS_SECONDS = 31536000
-    # SECURE_REDIRECT_EXEMPT = []
-    # SECURE_SSL_REDIRECT = False
-    # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SESSION_COOKIE_SECURE = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_REDIRECT_EXEMPT = []
+    SECURE_SSL_REDIRECT = False
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 

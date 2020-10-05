@@ -10,7 +10,7 @@ environ.Env.read_env()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'mysecretkey'
 # DEBUG = env('DEBUG')
-DEBUG = os.environ.get("DEBUG", False)
+DEBUG = False
 print(DEBUG)
 ALLOWED_HOSTS = ['3.231.203.166', 'localhost']
 

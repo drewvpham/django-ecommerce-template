@@ -105,29 +105,3 @@ class AddressForm(forms.Form):
 
 class StripePaymentForm(forms.Form):
     selectedCard = forms.CharField()
-
-
-class ProductForm(forms.ModelForm):
-    title = forms.CharField(required=False)
-    slug = forms.CharField(required=False)
-    image = forms.ImageField()
-    description = forms.CharField()
-    price = forms.IntegerField()
-    primary_category = forms.ModelChoiceField(
-        Category.objects.none(), required=False
-    )
-    secondary_categories = forms.ModelChoiceField(
-        Category.objects.none(), required=False
-    )
-
-    active = forms.BooleanField()
-    available_colours = forms.ModelChoiceField(
-        ColourVariation.objects.none(), required=False
-    )
-    available_sizes = forms.ModelChoiceField(
-        SizeVariation.objects.none(), required=False
-    )
-
-    class Meta:
-        model = Product
-        fields = '__all__'

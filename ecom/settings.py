@@ -12,7 +12,7 @@ SECRET_KEY = 'mysecretkey'
 
 DEBUG = False
 print(DEBUG)
-ALLOWED_HOSTS = ['3.234.207.94', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', '3.234.207.94', 'localhost']
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -102,8 +102,8 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
@@ -112,7 +112,7 @@ PAYPAL_SECRET_KEY = env('PAYPAL_SANDBOX_SECRET_KEY')
 
 STRIPE_PUBLIC_KEY = env("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
-
+STRIPE_WEBHOOK_SECRET = env("STRIPE_WEBHOOK_SECRET")
 
 if DEBUG:
     print('debug set to True')
@@ -123,12 +123,12 @@ if DEBUG:
         }
     }
 else:
-    # SESSION_COOKIE_SECURE = True
-    # SECURE_BROWSER_XSS_FILTER = True
-    # SECURE_CONTENT_TYPE_NOSNIFF = True
-    # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    # SECURE_HSTS_SECONDS = 31536000
-    # SECURE_REDIRECT_EXEMPT = []
+    SESSION_COOKIE_SECURE = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_REDIRECT_EXEMPT = []
     # SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 

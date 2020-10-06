@@ -11,11 +11,29 @@ from django.shortcuts import get_object_or_404, reverse, redirect
 from django.utils import timezone
 from django.views import generic
 from django.views.decorators.csrf import csrf_exempt
-from .forms import AddToCartForm, AddressForm, StripePaymentForm
+from .forms import AddToCartForm, AddressForm, StripePaymentForm, ProductForm
 from .models import Product, OrderItem, Address, Payment, Order, Category, StripePayment
 from .utils import get_or_set_order_session
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
+
+
+class ProductCreateView(generic.CreateView):
+    model = Product
+    template_name = 'cart/product_create.html'
+    form_class = ProductForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Create'
+        return context
+
+    def form_valid(self, form):
+
+        form.save()
+        return redirect(reverse("product-detail", kwargs={
+            'slug': form.instance.slug
+        }))
 
 
 class ProductListView(generic.ListView):

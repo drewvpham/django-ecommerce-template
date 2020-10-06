@@ -1,6 +1,7 @@
 
 import environ
 import os
+import stat
 FILE_UPLOAD_PERMISSIONS = stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP
 
 env = environ.Env()
